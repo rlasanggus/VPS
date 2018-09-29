@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+
+class Arrayy implements Comparable{
+	
+	private int number;
+	
+	public Arrayy(int number)(
+		this.number = number;
+	}
+	
+	public int getNumber(){return number;}(
+	
+	public int compareTo(Object obj){
+		Arrayy other = (Arrayy) obj;
+		if(number < other.number)
+			return -1;
+		else if(number > other.number)
+			return 1;
+		else
+			return 0;	
+	}
+	
+}
+
+public class ArrayTestFinall {
+	public static void main(String args[]) throws IOException{
+		Scanner s = null;
+		int nn = 0;
+		PrintWriter out = null;
+		Arrayy[] arrays = new Arrayy[10];
+		
+		
+		out = new PrintWriter(new FileWriter("output.txt"));
+
+		s = new Scanner(new BufferedReader(new FileReader("sample.txt")));
+		while(s.hasNext()){
+			arrays[nn] = new Arrayy(s.nextInt());
+			nn++;
+		}
+		if(s != null)
+			s.close();
+		
+		Arrays.sort(arrays);
+		
+		for(Arrayy a : arrays){
+			out.println(a.getNumber());
+			System.out.println(a.getNumber());
+		}
+		
+		if(out != null)
+			out.close();
+	}
+
+}
