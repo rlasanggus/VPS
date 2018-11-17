@@ -137,5 +137,65 @@ check(input, num);
 각 괄호에 해 확인  
 >[checkdum](https://github.com/rlasanggus/VPS#static-void-checkdumchar-type1-char-type2-string-input-int-num)  
 #### <code>static void checkdum(char type1, char type2, String input[], int num)</code>  
+```java
+for(int r=0; r<num; r++){
+			for(int i=0; i<input[r].length(); i++){
+				
+				if(input[r].charAt(i) == type1){
+					test++;
+					if(indexpnum>=0){
+						indexp[indexpnum] = r;
+						indexpnum ++;
+					}
+				}
+```
+input 배열에는 코드들이 한줄 단위로 저장되어 있음.  
+input[r].charAt(i)는 r번째 코드줄의 i번째 인덱스 위치의 char값. 이 값을 type1( ex:[ )와 비교  
+같다면 indexp[]배열에 해당 코드줄의 번호를 입력  
+indexpnum ++  
+```java
+if(input[r].charAt(i) == type2){
+					test--;
+					if(indexpnum>0){
+						indexpnum--;
+						indexp[indexpnum] = 0;
+					}
+					if(test < 0 && test < pretest){
+						index[indexnum] = r;
+						indexnum ++;
+						pretest = test;
+					}
+				}
+			}
+		}
+```  
+input 배열에는 코드들이 한줄 단위로 저장  
+input[r].char(i)는 r번째 코드줄의 i번째 인덱스 위치의 char값. 이 값을 type2( ex:] )와 비교  
+같다면 indexpnum을 감소시키고, indexp[] 에 저장되어있는값을 초기화( 괄호가 닫혔으니 열린곳의 위치는 의미가 없어짐)  
+test 값이 0보다 작아진다면, 열린 횟수보다 닫힌 횟수가 많아졌다는것을 의미.  이는 무조껀적인 에러위치가됨  
+index[]배열에 그 위치를 저장  
+pretest에 test값을 저장. 만약 또다시 test<0 이면서 test<pretest 이면, 닫히는 괄호가 많은 상태에서 또다시 괄호가 열림. 무조껀적인 에러  
 
 #### <code>static void disp(char type1, char type2, int test, int[] index, int indexnum, int[] indexp, int indexpnum)</code>  
+```java
+if(test == 0)
+			System.out.println(type1 + "" + type2 + " 정상");
+		else{
+			if(test>0){
+				System.out.print(type1 + "가  " + test + "개 많습니다 ");
+				for(int i=0; i<indexpnum; i++){
+					System.out.print(indexp[i]+1 + "/");
+				}
+			}
+			else{
+				System.out.print(type2 + "가  " + -test + "개 많습니다 ");
+			for(int i=0; i<indexnum; i++){
+				System.out.print(index[i]+1 + "/");
+			}
+			}
+			System.out.println("번째 줄을 확인하세요.");
+		}
+```  
+test == 0 이라면 열린 개수와 닫힌 개수가 같고 열리지 않았는데 닫힌 괄호 또한 없음. 정상  
+test > 0 이라면 열린 개수가 닫힌 개수보다 많음. 열리는 괄호는 indexp[]에 위치가 저장되어있음. 에러위치 출력  
+test < 0 이라면 열린 개수가 닫힌 개수보다 적음. 비정상적인 닫히는 괄호는 index[]에 위치가 저장되어 있음. 에러위치 출력  
