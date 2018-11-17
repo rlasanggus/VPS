@@ -22,6 +22,14 @@
 
 ## <pre>VPS</pre> 
 > [VPS.java](https://github.com/rlasanggus/VPS/tree/master/src)  
+>> [public static void main(String[] args) throws IOException](https://github.com/rlasanggus/VPS#public-static-void-mainstring-args-throws-ioexception)  
+>> [static void Dofile()](https://github.com/rlasanggus/VPS#static-void-dofile)  
+>> [static void Docmd()](https://github.com/rlasanggus/VPS#static-void-docmd)  
+>> [static void check(String input[], int num)](https://github.com/rlasanggus/VPS#static-void-checkstring-input-int-num)  
+>> [static void checkdum(char type1, char type2, String input[], int num)](https://github.com/rlasanggus/VPS#static-void-checkdumchar-type1-char-type2-string-input-int-num)  
+>> [static void disp(char type1, char type2, int test, int[] index, int indexnum, int[] indexp, int indexpnum)](https://github.com/rlasanggus/VPS#static-void-dispchar-type1-char-type2-int-test-int-index-int-indexnum-int-indexp-int-indexpnum)   
+
+
 ```java
 import java.util.Scanner;
 import java.io.*;
