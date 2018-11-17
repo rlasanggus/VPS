@@ -127,5 +127,15 @@ check(input, num);
 읽은 코드를 check
 >[check](https://github.com/rlasanggus/VPS#static-void-checkstring-input-int-num)
 #### <code>static void check(String input[], int num)</code>  
+```java
+	static void check(String input[], int num){
+		checkdum('(', ')', input, num);
+		checkdum('{', '}', input, num);
+		checkdum('[', ']', input, num);
+	}
+```  
+각 괄호에 해 확인  
+>[checkdum](https://github.com/rlasanggus/VPS#static-void-checkdumchar-type1-char-type2-string-input-int-num)  
 #### <code>static void checkdum(char type1, char type2, String input[], int num)</code>  
+
 #### <code>static void disp(char type1, char type2, int test, int[] index, int indexnum, int[] indexp, int indexpnum)</code>  
