@@ -20,5 +20,12 @@
   * ()의 경우 코드의 한줄기준으로 열고 닫힘. 한줄에 대한 확인 필요  
   * +a
 
+## <pre>VPS</pre> 
+> [VPS.java](https://github.com/rlasanggus/VPS/tree/master/src)  
 
-
+#### <code>public static void main(String[] args)</code>  
+#### <code>static void Dofile()</code>  
+#### <code>static void Docmd()</code>  
+#### <code>static void check(String input[], int num)</code>  
+#### <code>static void checkdum(char type1, char type2, String input[], int num)</code>  
+#### <code>static void disp(char type1, char type2, int test, int[] index, int indexnum, int[] indexp, int indexpnum)</code>  
