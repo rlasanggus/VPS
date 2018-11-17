@@ -70,7 +70,62 @@ System.out.println("확인하고자 하는 코드의 입력 형태를 입력하�
 정확한 입력이 될때까지 무한루프  
 
 #### <code>static void Dofile()</code>  
+```java
+try{
+			read = new BufferedReader(new FileReader("codtest.txt"));
+			while((input[num] = read.readLine()) != null){
+				num++;
+			}
+		}catch(IOException e){
+			System.out.println(e);
+			System.exit(1);
+		}finally{
+			if(read != null)
+				read.close();
+		}
+``` 
+파일에서 한줄 단위로 코드르 읽어옴  
+에러가 나면 e 를 출력후 종료  
+파일을 끝까지 읽었으면 read 객체 반환  
+```java
+for(String a : input){
+	if(a == null)
+		break;
+	System.out.println(codnum + "	" + a);
+	codnum ++;
+}
+```  
+읽어들인 코드를 출력(없어도 되는부분)  
+```java
+	check(input, num);
+	
+	if(scan != null)
+		scan.close();
+}
+```  
+읽은 코드를 check
+>[check](https://github.com/rlasanggus/VPS#static-void-checkstring-input-int-num)
+
 #### <code>static void Docmd()</code>  
+```java
+for(int i = 0; i<codnum; i++){
+			
+			System.out.print(i+1 + "	");
+			input[i] = scan.next();
+			if(input[i].equals("여기까지"))
+				break;
+			num++;
+		}
+```  
+종료조건을 만족할때까지 입력받음  
+```java
+check(input, num);
+	if(scan != null)
+	scan.close();
+}
+```  
+읽은 코드를 check
+>[check](https://github.com/rlasanggus/VPS#static-void-checkstring-input-int-num)
 #### <code>static void check(String input[], int num)</code>  
 #### <code>static void checkdum(char type1, char type2, String input[], int num)</code>  
 #### <code>static void disp(char type1, char type2, int test, int[] index, int indexnum, int[] indexp, int indexpnum)</code>  
