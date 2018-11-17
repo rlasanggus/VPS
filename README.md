@@ -22,8 +22,45 @@
 
 ## <pre>VPS</pre> 
 > [VPS.java](https://github.com/rlasanggus/VPS/tree/master/src)  
+```java
+import java.util.Scanner;
+import java.io.*;
+import java.util.InputMismatchException;
+```  
+Scanner 사용을 위한 util 패키지의 Scanner class 참조  
+파일 입출력을 위한 io 패키지의 모든 class 참조  
+입력시 예외처리를 위한 util패키지의 InputMismatchException 참조  
+#### <code>public static void main(String[] args) throws IOException</code>  
+```java
+System.out.println("확인하고자 하는 코드의 입력 형태를 입력하세요");
+		int go = 0;
+		Scanner scan;
+		for(;;){
+			scan = new Scanner(System.in);
+			System.out.println("1.커맨드창		2.파일");
+			try{
+				go = scan.nextInt();
+				if(go == 1){
+					Docmd();
+					break;
+				}
+				else if(go == 2){
+					Dofile();
+					break;
+				}
+				else{
+					System.out.println("error");	
+				}
+			}catch(InputMismatchException e){
+				System.out.println("숫자가 아닙니다.");
+				continue;
+			}
+		}
+```  
+커맨드 창으로부터 코드를 입력받을 형태 입력받음  
+잘못된 입력의 경우 예외처리  
+정확한 입력이 될때까지 무한루프  
 
-#### <code>public static void main(String[] args)</code>  
 #### <code>static void Dofile()</code>  
 #### <code>static void Docmd()</code>  
 #### <code>static void check(String input[], int num)</code>  
